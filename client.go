@@ -35,17 +35,16 @@ func WithGraphQLClient(gql graphql.GraphQL) Option {
 }
 
 func NewDefaultClient(opts ...Option) *Client {
-	apiKey := os.Getenv("STORE_API_KEY")
-	password := os.Getenv("STORE_PASSWORD")
+	accessToken := os.Getenv("STORE_ACCESS_TOKEN")
 	storeName := os.Getenv("STORE_NAME")
-	if apiKey == "" || password == "" || storeName == "" {
+	if accessToken == "" || storeName == "" {
 		log.Fatalln("Shopify app API Key and/or Password and/or Store Name not set")
 	}
 
-	return NewClient(apiKey, password, storeName, opts...)
+	return NewClient(accessToken, storeName, "", opts...)
 }
 
-func NewClient(apiKey string, password string, storeName string, opts ...Option) *Client {
+func NewClient(accessToken string, storeName string, apiVersion string, opts ...Option) *Client {
 	c := &Client{}
 
 	for _, opt := range opts {
@@ -53,7 +52,7 @@ func NewClient(apiKey string, password string, storeName string, opts ...Option)
 	}
 
 	if c.gql == nil {
-		c.gql = newShopifyGraphQLClient(apiKey, password, storeName)
+		c.gql = newShopifyGraphQLClientWithToken(accessToken, storeName, apiVersion)
 	}
 
 	c.Product = &ProductServiceOp{client: c}
@@ -73,6 +72,17 @@ func newShopifyGraphQLClient(apiKey string, password string, storeName string) *
 	opts := []graphqlclient.Option{
 		graphqlclient.WithVersion(defaultShopifyAPIVersion),
 		graphqlclient.WithPrivateAppAuth(apiKey, password),
+	}
+	return graphqlclient.NewClient(storeName, opts...)
+}
+
+func newShopifyGraphQLClientWithToken(accessToken string, storeName string, apiVersion string) *graphql.Client {
+	if apiVersion == "" {
+		apiVersion = defaultShopifyAPIVersion
+	}
+	opts := []graphqlclient.Option{
+		graphqlclient.WithVersion(apiVersion),
+		graphqlclient.WithToken(accessToken),
 	}
 	return graphqlclient.NewClient(storeName, opts...)
 }
