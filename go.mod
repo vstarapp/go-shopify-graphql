@@ -18,6 +18,7 @@ require (
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/vstarapp/go-shopify-graphql/v6 v6.2.1 // indirect
 	github.com/thoas/go-funk v0.9.1 // indirect
 	golang.org/x/net v0.0.0-20211216030914-fe4d6282115f // indirect
 	golang.org/x/sys v0.0.0-20220227234510-4e6760a101f9 // indirect

@@ -17,6 +17,8 @@ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZb
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/r0busta/go-shopify-graphql-model/v3 v3.0.0 h1:BwfKdCW7/0OdvrQ5zN+VULrqbsHPNWL2KQdN2CJ77x0=
 github.com/r0busta/go-shopify-graphql-model/v3 v3.0.0/go.mod h1:URLqpkO1qmYcL7uUgntzgbZX80BN2MwpPqIDTWVVrQ8=
+github.com/vstarapp/go-shopify-graphql/v6 v6.2.1 h1:XOk9kxCJDo+C1HBKYHS5yWaWglPf0jxoTF0fLDXquHM=
+github.com/vstarapp/go-shopify-graphql/v6 v6.2.1/go.mod h1:EHcLpaH9hylHLqRAjgZJkceQJhuyYbIehb5sZ23xM6M=
 github.com/r0busta/graphql v1.2.0 h1:vbq+Fyuegajydfu9mQsjNBXAJTfMYrczOLJdhLVhsrQ=
 github.com/r0busta/graphql v1.2.0/go.mod h1:tnBqVGxQVmck/AhJ6VSd2zr5JjXqDm7Rn9ThGRrRg0g=
 github.com/sirupsen/logrus v1.8.1 h1:dJKuHgqk1NNQlqoA6BTlM1Wf9DOH3NBjQyu0h9+AZZE=
